@@ -1,0 +1,56 @@
+Phase 1 — The Game Loop:
+    - Project setup, build tools, package manager
+    - Define core types (Player, Enemy, Tile, Map)
+    - Enums for TileType (Wall, Floor, Door) and Direction
+    - Generate a rectangular dungeon (rooms + corridors)
+    - Render the map to the terminal (clear + redraw)
+    - Player movement with WASD/arrow keys (raw input)
+    - Fog of war (line-of-sight radius)
+    - Spawn 3-5 enemies with random placement
+    - Turn-based combat (bump to attack)
+    - Enemy AI (move toward player each turn)
+    - Game over screen with stats (kills, turns, damage)
+
+Phase 2 — Persistence & Items:
+    - Item types (potions, swords, armor, scrolls)
+    - Pick up items from the map
+    - Inventory system (equip slots + 10-slot backpack)
+    - Item effects (heal, teleport, reveal map, stat boosts)
+    - Multiple floors with stairs (procedural generation per floor)
+    - Enemy scaling per floor (new types: Ogres, Dragons)
+    - Save game to JSON file
+    - Load game from file (resume exactly)
+    - Config file for keybindings/preferences
+    - CLI arguments (--new, --load, --seed)
+
+Phase 3 — Procedural Generation & Algorithms:
+    - BSP dungeon generation
+    - BFS/DFS to verify all rooms are reachable
+    - A* pathfinding for enemy AI
+    - Weighted loot tables (common → legendary)
+    - Shadowcasting field of view
+    - Mini-map of explored areas
+    - Scrollable combat log
+    - Status effects (poison, stun, haste)
+    - Generics for typed containers / loot tables
+    - Profile and optimize hot loops
+
+Phase 4 — Multiplayer & Networking:
+    - HTTP REST API server (POST /runs, GET /leaderboard)
+    - Client-side score submission after death
+    - Display leaderboard from main menu
+    - Input validation and rate limiting
+    - Co-op mode via TCP/WebSocket (stretch goal)
+    - Shared map, independent inventories
+    - Turn synchronization for two players
+    - Handle disconnects gracefully
+
+Phase 5 — Polish & Engineering:
+    - Unit tests (combat, loot tables, pathfinding, serialization)
+    - Integration tests for the API
+    - Property-based tests (every generated map is solvable)
+    - CI pipeline (lint, test, build on push)
+    - Structured logging
+    - README with build instructions + screenshots
+    - Package and distribute (binary, Docker, or package registry)
+    - Plugin/mod system (stretch goal)
