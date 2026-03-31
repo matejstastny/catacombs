@@ -1,7 +1,7 @@
 # Created: 2026-03-31 16:08 | Language: java
 
 Phase 1 — The Game Loop:
-    - Project setup, build tools, package manager
+    ✔ Project setup, build tools, package manager @done(26-03-31 16:18)
     - Define core types (Player, Enemy, Tile, Map)
     - Enums for TileType (Wall, Floor, Door) and Direction
     - Generate a rectangular dungeon (rooms + corridors)
