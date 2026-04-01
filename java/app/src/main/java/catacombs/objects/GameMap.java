@@ -12,12 +12,12 @@ public class GameMap {
     private int playerX = 0;
     private int playerY = 0;
 
-    private int[][] mapData;
+    private TileType[][] mapData;
 
     // ---------------------------
 
     public GameMap() {
-        mapData = new int[WIDTH][HEIGHT];
+        mapData = new TileType[WIDTH][HEIGHT];
         generateMap();
     }
 
@@ -63,7 +63,7 @@ public class GameMap {
     private void generateMap() {
         for (int x = 0; x < WIDTH; x++) {
             for (int y = 0; y < HEIGHT; y++) {
-                mapData[x][y] = 0;
+                mapData[x][y] = TileType.EMPTY;
             }
         }
     }
@@ -81,6 +81,32 @@ public class GameMap {
         out = out.substring(0, out.length() - 1);
         out += corner2;
         return out;
+    }
+
+    private char wallChar(int x, int y) {
+        assert x >= 0 && x < WIDTH && y >= 0 && y < HEIGHT;
+        return '#'; // TODO
+    }
+
+    // ---------------------------
+
+    public enum TileType {
+        EMPTY(" "), WALL("#");
+
+        private final String symbol;
+
+        TileType(String symbol) {
+            this.symbol = symbol;
+        }
+
+        @Override
+        public String toString() {
+            return symbol;
+        }
+
+        TileType() {
+            this.symbol = " ";
+        }
     }
 
 }
