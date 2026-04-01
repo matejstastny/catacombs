@@ -2,11 +2,11 @@
 
 Phase 1 — The Game Loop:
     ✔ Project setup, build tools, package manager @done(26-03-31 16:18)
-    - Define core types (Player, Enemy, Tile, Map)
-    - Enums for TileType (Wall, Floor, Door) and Direction
-    - Generate a rectangular dungeon (rooms + corridors)
-    - Render the map to the terminal (clear + redraw)
-    - Player movement with WASD/arrow keys (raw input)
+    ✘ Define core types (Player, Enemy, Tile, Map) @cancelled(26-03-31 17:29)
+    ✘ Enums for TileType (Wall, Floor, Door) and Direction @cancelled(26-03-31 17:29)
+    ✔ Generate a rectangular dungeon (rooms + corridors) @done(26-03-31 17:29)
+    ✔ Render the map to the terminal (clear + redraw) @done(26-03-31 17:29)
+    ✔ Player movement with WASD/arrow keys (raw input) @done(26-03-31 17:29)
     - Fog of war (line-of-sight radius)
     - Spawn 3-5 enemies with random placement
     - Turn-based combat (bump to attack)

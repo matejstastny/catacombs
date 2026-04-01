@@ -8,6 +8,7 @@ repositories {
 
 dependencies {
     implementation(libs.guava)
+    implementation("org.jline:jline:3.26.3")
 }
 
 java {
@@ -19,3 +20,6 @@ java {
 application {
     mainClass = "catacombs.App"
 }
+
+tasks.run.get().standardInput = System.`in`
+
