@@ -22,22 +22,18 @@ public class GameMap {
     }
 
     public void render() {
-        System.out.println(boxBorder(true, false));
         for (int y = 0; y < HEIGHT; y++) {
-            System.out.print("│");
             for (int x = 0; x < WIDTH; x++) {
                 if (x == playerX && y == playerY) {
-                    System.out.print(PLAYER_COLOR + " P " + TerminalUtil.Ansi.RESET + "│");
+                    System.out.print(PLAYER_COLOR + " P " + TerminalUtil.Ansi.RESET);
+                } else if (mapData[x][y] == TileType.WALL) {
+                    System.out.print(" " + wallChar(x, y) + " ");
                 } else {
-                    System.out.print(" " + mapData[x][y] + " │");
+                    System.out.print(" " + mapData[x][y] + " ");
                 }
             }
             System.out.println();
-            if (y < HEIGHT - 1) {
-                System.out.println(boxBorder(false, true));
-            }
         }
-        System.out.println(boxBorder(false, false));
     }
 
     public void setPlayerPosition(int x, int y) {
@@ -63,27 +59,19 @@ public class GameMap {
     private void generateMap() {
         for (int x = 0; x < WIDTH; x++) {
             for (int y = 0; y < HEIGHT; y++) {
-                mapData[x][y] = TileType.EMPTY;
+                if (x == 0 || x == WIDTH - 1 || y == 0 || y == HEIGHT - 1) {
+                    mapData[x][y] = TileType.WALL;
+                } else {
+                    mapData[x][y] = TileType.EMPTY;
+                }
             }
         }
     }
 
-    private String boxBorder(boolean top, boolean middle) {
-        String out = "";
-        char corner1 = middle ? '├' : top ? '┌' : '└';
-        char corner2 = middle ? '┤' : top ? '┐' : '┘';
-        char divider = middle ? '┼' : top ? '┬' : '┴';
-        out += corner1;
-        for (int i = 0; i < WIDTH; i++) {
-            out += "───";
-            out += divider;
-        }
-        out = out.substring(0, out.length() - 1);
-        out += corner2;
-        return out;
-    }
-
     private char wallChar(int x, int y) {
+        // char corner1 = middle ? '├' : top ? '┌' : '└';
+        // char corner2 = middle ? '┤' : top ? '┐' : '┘';
+        // char divider = middle ? '┼' : top ? '┬' : '┴';
         assert x >= 0 && x < WIDTH && y >= 0 && y < HEIGHT;
         return '#'; // TODO
     }
